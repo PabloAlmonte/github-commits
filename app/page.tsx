@@ -1,7 +1,9 @@
 import Image from "next/image"
+import GithubService from "./api/services/github"
 
 function getCommits() {
-  return fetch('https://api.github.com/repos/PabloAlmonte/BoxCodes/commits').then(res => res.json())
+  const service = new GithubService()
+  return service.getCommits('https://github.com/PabloAlmonte/BoxCodes')
 }
 
 export default async function Home() {
