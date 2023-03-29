@@ -1,6 +1,7 @@
 ## Getting Started
 Welcome to my hello world with Next.js
-First, run the development server:
+
+First clone the project and run the development server:
 
 ```bash
 npm run dev
