@@ -3,7 +3,7 @@ import GithubService from "../modules/github/service"
 
 function getCommits() {
   const service = new GithubService()
-  return service.getCommits('https://github.com/PabloAlmonte/BoxCodes')
+  return service.getCommits('https://github.com/PabloAlmonte/github-commits')
 }
 
 export default async function Home() {
