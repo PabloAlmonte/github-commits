@@ -1,5 +1,5 @@
 import Image from "next/image"
-import GithubService from "./api/services/github"
+import GithubService from "../modules/github/service"
 
 function getCommits() {
   const service = new GithubService()
@@ -15,13 +15,13 @@ export default async function Home() {
       {
         commits.map((commit) => (
           <div className="mb-3 border-b pb-3" key={commit.sha}>
-            <h1 className="font-bold">{commit.commit.message}</h1>
+            <h1 className="font-bold">{commit.message}</h1>
             <div className="flex justify-between items-center">
               <div className="flex items-center">
-                <Image className="rounded-full" src={commit.author?.avatar_url} alt="Author Image" width={30} height={30} />
-                <h6 className="text-base ml-1">{commit.commit.author.name}</h6>
+                <Image className="rounded-full" src={commit.committer.avatar} alt="Author Image" width={30} height={30} />
+                <h6 className="text-base ml-1">{commit.committer.name}</h6>
               </div>
-              <small>{commit.commit.author.date}</small>
+              <small>{commit.date.toDateString()}</small>
             </div>
           </div>
         ))
